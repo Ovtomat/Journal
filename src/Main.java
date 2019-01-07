@@ -16,8 +16,7 @@ public class Main {
         samsungit.hireEmployee(e);
         samsungit.getListEmployees();
         samsungit.addClass(a8);
-        samsungit.addstudenttoclass(q1,a8);
-        samsungit.addstudenttoclass(q2,a8);
+
 
 
         samsungit.getListTeachers();

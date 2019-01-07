@@ -76,7 +76,13 @@ public class School {
             this.teachers[this.teachers.length-1]=m.ClassTeacher;
 
         }
+        for (int i=0;i<m.learners.length;i++){
+            if (!Arrays.asList(this.learners).contains(m.learners[i])){
+                this.learners  = Arrays.copyOf(this.learners, this.learners.length + 1);
+                this.learners[this.learners.length-1]=m.learners[i];}
         }
+    }
+
 
      public void addElectives(Electives m){
          if( Arrays.asList(this.electives).contains(m)){
@@ -85,16 +91,32 @@ public class School {
          else{
              this.electives  = Arrays.copyOf(this.electives, this.electives.length + 1);
              this.electives[this.electives.length-1]=m;
+         }if (!Arrays.asList(this.teachers).contains(m.ClassTeacher)){
+             this.teachers  = Arrays.copyOf(this.teachers, this.teachers.length + 1);
+             this.teachers[this.teachers.length-1]=m.ClassTeacher;}
+         for (int i=0;i<m.students.length;i++){
+             if (!Arrays.asList(this.learners).contains(m.students[i])){
+                 this.learners  = Arrays.copyOf(this.learners, this.learners.length + 1);
+                 this.learners[this.learners.length-1]=m.students[i];}
          }
-     }public void addSection(Section s){
+     }
+ public void addSection(Section s){
         if( Arrays.asList(this.sections).contains(s)){
             System.out.println("Такой класс уже есть");
         }
         else{
             this.sections  = Arrays.copyOf(this.sections, this.sections.length + 1);
             this.sections[this.sections.length-1]=s;
+        }if (!Arrays.asList(this.teachers).contains(s.ClassTeacher)){
+            this.teachers  = Arrays.copyOf(this.teachers, this.teachers.length + 1);
+            this.teachers[this.teachers.length-1]=s.ClassTeacher;}
+        for (int i=0;i<s.students.length;i++){
+            if (!Arrays.asList(this.learners).contains(s.students[i])){
+                this.learners  = Arrays.copyOf(this.learners, this.learners.length + 1);
+                this.learners[this.learners.length-1]=s.students[i];}
+            }
         }
-    }
+
     public void hireTeacher(Teacher t){
         if( Arrays.asList(this.teachers).contains(t)){
 
